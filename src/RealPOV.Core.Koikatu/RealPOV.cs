@@ -10,7 +10,7 @@ using KKAPI.Studio.SaveLoad;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[assembly: System.Reflection.AssemblyFileVersion(RealPOV.Koikatu.RealPOV.Version)]
+[assembly: System.Reflection.AssemblyVersion(RealPOV.Koikatu.RealPOV.Version)]
 
 namespace RealPOV.Koikatu
 {
@@ -18,7 +18,7 @@ namespace RealPOV.Koikatu
     [BepInDependency(KKAPI.KoikatuAPI.GUID)]
     public class RealPOV : RealPOVCore
     {
-        public const string Version = "1.3.3." + BuildNumber.Version;
+        public const string Version = "1.4.0." + BuildNumber.Version;
 
         private ConfigEntry<bool> HideHead { get; set; }
         private ConfigEntry<PovSex> SelectedPOV { get; set; }

@@ -7,7 +7,7 @@ using KeelPlugins;
 using KKAPI;
 using KKAPI.Maker;
 
-[assembly: System.Reflection.AssemblyFileVersion(ClothingStateMenuX.ClothingStateMenu.Version)]
+[assembly: System.Reflection.AssemblyVersion(ClothingStateMenuX.ClothingStateMenu.Version)]
 
 namespace ClothingStateMenuX
 {
@@ -17,7 +17,7 @@ namespace ClothingStateMenuX
     [BepInPlugin("keelhauled.clothingstatemenux", "ClothingStateMenuX", Version)]
     public class ClothingStateMenu : BaseUnityPlugin
     {
-        public const string Version = "1.0.4." + BuildNumber.Version;
+        public const string Version = "1.1.0." + BuildNumber.Version;
 
         public static ConfigEntry<bool> ShowClothingSets { get; set; }
 
@@ -64,7 +64,11 @@ namespace ClothingStateMenuX
 
         private static class Hooks
         {
+#if KK
+            [HarmonyPostfix, HarmonyPatch("KK_Plugins.MoreOutfits.MakerUI, KK_MoreOutfits", "UpdateMakerUI"), HarmonyWrapSafe]
+#else
             [HarmonyPostfix, HarmonyPatch("KK_Plugins.MoreOutfits.MakerUI, KKS_MoreOutfits", "UpdateMakerUI"), HarmonyWrapSafe]
+#endif
             private static void MoreOutfitsHook()
             {
                 UI.ReloadClothingSets();

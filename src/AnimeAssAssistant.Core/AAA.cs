@@ -12,20 +12,18 @@ using System.Collections.Generic;
 using System.Reflection.Emit;
 using System.Linq;
 
-[assembly: System.Reflection.AssemblyFileVersion(AnimeAssAssistant.AAA.Version)]
+[assembly: System.Reflection.AssemblyVersion(AnimeAssAssistant.AAA.Version)]
 
 namespace AnimeAssAssistant
 {
     [BepInDependency(KKAPI.KoikatuAPI.GUID)]
     [BepInProcess(Constants.MainGameProcessName)]
     [BepInProcess(Constants.VRProcessName)]
-    [BepInProcess(Constants.MainGameProcessNameSteam)]
-    [BepInProcess(Constants.VRProcessNameSteam)]
     [BepInPlugin(GUID, "Anime Ass Assistant", Version)]
     public class AAA : BaseUnityPlugin
     {
         public const string GUID = "keelhauled.animeassassistant";
-        public const string Version = "1.0.3." + BuildNumber.Version;
+        public const string Version = "1.1.0." + BuildNumber.Version;
 
         private const string SECTION_HOTKEY = "Keyboard shortcuts";
         private const string SECTION_FOLDER = "Folders";
